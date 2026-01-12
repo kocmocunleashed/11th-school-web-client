@@ -1,0 +1,1116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>11th school</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<style>
+    /* Basic reset */
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+
+    /* Body background with image and gradient overlay */
+    html {
+        scroll-behavior: smooth;
+        -webkit-overflow-scrolling: touch;
+    }
+
+
+    html, body {
+        height: 100%;
+        min-height: 100vh;
+        overflow-x: hidden;
+    }
+
+
+    body {
+        position: relative;
+        background-color: #07499e;
+        font-family: 'Montserrat', sans-serif;
+    }
+
+
+    body::before {
+        content: '';
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-image: url('https://scontent.fuln3-1.fna.fbcdn.net/v/t39.30808-6/486806292_9757846480912776_2059074757821115501_n.jpg?_nc_cat=103&ccb=1-7&_nc_sid=cc71e4&_nc_ohc=DXvugKaSXS4Q7kNvwGbGhfO&_nc_oc=Adn89ms_sdbnV2-LPIpFZumtVmcRUZAuC_4X8n7aTUmMh-oNECRPeTKShdDiYNZvpu4&_nc_zt=23&_nc_ht=scontent.fuln3-1.fna&_nc_gid=PAezePhiu3zw8eK8dmEe_A&oh=00_Afn3lxNtxXQd81soTCs69ivbm33Yaj9t5X4FdYfCtf_9TA&oe=693EC105');
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        filter: blur(3px);
+        z-index: -2;
+    }
+
+
+    body::after {
+        content: '';
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(to bottom, rgba(7, 73, 158, 0.7), rgba(255, 177, 0, 0.4));
+        z-index: -1;
+    }
+
+
+    /* Top bar container */
+    .topbar {
+        background-color: #07499e;
+        overflow: hidden;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 20px 16px;
+    }
+
+
+    /* Logo */
+    .topbar .logo {
+        color: white;
+        font-size: 20px;
+        font-weight: bold;
+        text-decoration: none;
+        display: flex;
+        align-items: center;
+    }
+   
+    .topbar .logo img {
+        height: 40px;
+        width: auto;
+        object-fit: contain;
+    }
+
+
+    /* Navigation links */
+    .topbar nav {
+        display: flex;
+    }
+
+
+    .topbar nav a {
+        color: rgba(255, 177, 0, 1);
+        padding: 10px 20px;
+        text-decoration: none;
+        text-align: center;
+        margin: 0 5px;
+        font-weight: 600;
+        font-size: 0.95rem;
+        transition: all 0.3s ease;
+       
+        backdrop-filter: blur(5px);
+    }
+
+
+    .topbar nav a:hover {
+        background: rgba(255, 177, 0, 0.9);
+        color: #07499e;
+        border-color: rgba(255, 177, 0, 1);
+        transform: translateY(-2px);
+        box-shadow: 0 4px 8px rgba(255, 177, 0, 0.3);
+    }
+
+
+    .topbar nav a:active { 
+        transform: translateY(0);
+    }
+
+
+    /* Mobile menu button */
+    .menu-toggle {
+        display: none;
+        font-size: 24px;
+        color: white;
+        cursor: pointer;
+    }
+
+
+    /* Center content section */
+    .center-content {
+        position: absolute;
+        top: 30%;
+        right: 10%;
+        text-align: left;
+        color: rgba(255, 177, 0, 1);
+        z-index: 1;
+        display: flex;
+        align-items: center;
+        gap: 2rem;
+    }
+
+
+    .center-content .text-content {
+        display: flex;
+        flex-direction: column;
+    }
+
+
+    .center-content h1 {
+        font-family: 'Montserrat', serif;
+        font-size: 3rem;
+        margin-bottom: 1rem;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        font-weight: 700;
+        letter-spacing: 1px;
+    }
+
+
+    .center-content p {
+        font-size: 1.2rem;
+        margin-bottom: 0;
+        text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+        font-weight: 500;
+        letter-spacing: 0.5px;
+    }
+
+
+    .cta-button {
+        background-color: #07499e;
+        color: white;
+        padding: 15px 40px;
+        font-size: 1.1rem;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        text-decoration: none;
+        display: inline-block;
+        transition: background-color 0.3s ease, transform 0.2s ease;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+        font-weight: 600;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+    }
+
+
+    .cta-button:hover {
+        background-color: #07499e;
+        transform: translateY(-2px);
+        box-shadow: 0 6px 8px rgba(0, 0, 0, 0.4);
+    }
+
+
+    .cta-button:active {
+        transform: translateY(0);
+    }
+
+
+    /* News cards section */
+    .news-section {
+        position: relative;
+        padding: 100px 40px 80px;
+        max-width: 1400px;
+        margin: 0 auto;
+        z-index: 1;
+        margin-top: 70vh;
+    }
+
+
+    .news-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: repeat(2, 1fr);
+        gap: 30px;
+    }
+
+
+    .news-card {
+        background: rgba(255, 255, 255, 0.95);
+        border-radius: 12px;
+        overflow: visible;
+        box-shadow:
+            0 0 15px rgba(7, 73, 158, 0.6),
+            0 0 25px rgba(255, 177, 0, 0.4),
+            0 0 35px rgba(7, 73, 158, 0.3),
+            0 4px 6px rgba(0, 0, 0, 0.3);
+        display: flex;
+        flex-direction: column;
+        transition: transform 0.8s ease, box-shadow 0.3s ease, opacity 0.8s ease;
+        opacity: 0.2;
+        transform: translateY(30px);
+        position: relative;
+        border: 6px solid transparent;
+        background-clip: padding-box;
+        cursor: pointer;
+    }
+
+
+    .news-card::before {
+        content: '';
+        position: absolute;
+        top: -6px;
+        left: -6px;
+        right: -6px;
+        bottom: -6px;
+        border-radius: 15px;
+        background: linear-gradient(135deg, rgba(7, 73, 158, 0.3), rgba(255, 177, 0, 0.2), rgba(7, 73, 158, 0.3), rgba(255, 177, 0, 0.15));
+        background-size: 200% 200%;
+        z-index: -1;
+        animation: gradientShift 3s ease infinite;
+        opacity: 1;
+    }
+
+
+    @keyframes gradientShift {
+        0% {
+            background-position: 0% 50%;
+        }
+        50% {
+            background-position: 100% 50%;
+        }
+        100% {
+            background-position: 0% 50%;
+        }
+    }
+
+
+    .news-card::after {
+        content: '';
+        position: absolute;
+        top: -9px;
+        left: -9px;
+        right: -9px;
+        bottom: -9px;
+        border-radius: 18px;
+        background: linear-gradient(135deg, rgba(7, 73, 158, 0.15), rgba(255, 177, 0, 0.1));
+        z-index: -2;
+        filter: blur(12px);
+        opacity: 0.8;
+    }
+
+
+    .news-card.fade-in {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+
+    .news-card:nth-child(1) { transition-delay: 0.1s; }
+    .news-card:nth-child(2) { transition-delay: 0.2s; }
+    .news-card:nth-child(3) { transition-delay: 0.3s; }
+    .news-card:nth-child(4) { transition-delay: 0.4s; }
+    .news-card:nth-child(5) { transition-delay: 0.5s; }
+    .news-card:nth-child(6) { transition-delay: 0.6s; }
+
+
+    .news-card:hover {
+        transform: translateY(-5px);
+        box-shadow:
+            0 0 20px rgba(7, 73, 158, 0.8),
+            0 0 35px rgba(255, 177, 0, 0.6),
+            0 0 50px rgba(7, 73, 158, 0.4),
+            0 8px 12px rgba(0, 0, 0, 0.4);
+    }
+
+
+    .news-card:hover::before {
+        opacity: 1;
+        filter: none;
+    }
+
+
+    .news-card:hover::after {
+        opacity: 1;
+        filter: blur(15px);
+    }
+
+
+    .news-card-header {
+        padding: 12px 16px;
+        background: linear-gradient(135deg, rgba(7, 73, 158, 0.05), rgba(255, 177, 0, 0.02));
+        border-bottom: 1px solid rgba(7, 73, 158, 0.2);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-size: 0.85rem;
+    }
+
+
+    .news-card-header .written-by {
+        color: #07499e;
+        font-weight: 600;
+        display: flex;
+        align-items: center;
+        gap: 5px;
+    }
+
+
+    .news-card-header .written-by::before {
+        content: '✍️';
+        font-size: 0.9rem;
+    }
+
+
+    .news-card-header .date {
+        color: rgba(7, 73, 158, 0.8);
+        font-weight: 500;
+        display: flex;
+        align-items: center;
+        gap: 5px;
+    }
+
+
+    .news-card-header .date::before {
+        content: '📅';
+        font-size: 0.9rem;
+    }
+
+
+    .news-card-photo {
+        width: 100%;
+        height: 200px;
+        background-image: url('https://scontent.fuln11-1.fna.fbcdn.net/v/t39.30808-6/583334535_1251025820404755_1221325711039351983_n.jpg?stp=dst-jpg_s600x600_tt6&_nc_cat=103&ccb=1-7&_nc_sid=127cfc&_nc_ohc=YXe9ejA1t90Q7kNvwEbfFnF&_nc_oc=Adl-5DwQ1wIx2DFrTokiyz_DA199RVmoPLHtf-qGn8wiv6SX09GcFDM-PwxDyTIw0o8&_nc_zt=23&_nc_ht=scontent.fuln11-1.fna&_nc_gid=RxoyjRkpubrsLrifA0W0ZQ&oh=00_AfgFDUOVHvXWDRG9FyrOHwwgZcmgwucTJo5PtIU3zbYbkA&oe=6931CFA5');
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+    }
+
+
+    .news-card-content {
+        padding: 20px;
+        flex: 1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 100px;
+        background: linear-gradient(135deg, rgba(7, 73, 158, 0.05), rgba(255, 177, 0, 0.05));
+        border-top: 2px solid transparent;
+        border-image: linear-gradient(90deg, rgba(7, 73, 158, 0.3), rgba(255, 177, 0, 0.3)) 1;
+    }
+
+
+    .news-card-content p {
+        background: linear-gradient(135deg, rgba(7, 73, 158, 0.8), rgba(255, 177, 0, 0.7));
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        font-size: 1.4rem;
+        text-align: center;
+        margin: 0;
+        font-weight: 700;
+        letter-spacing: 1px;
+        text-shadow: 0 0 20px rgba(7, 73, 158, 0.3);
+        filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.2));
+        position: relative;
+    }
+
+
+    .news-card-content p::after {
+        content: '';
+        position: absolute;
+        bottom: -5px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 60px;
+        height: 3px;
+        background: linear-gradient(90deg, rgba(7, 73, 158, 0.6), rgba(255, 177, 0, 0.5));
+        border-radius: 2px;
+    }
+
+
+    /* Animations */
+    @keyframes fadeInUp {
+        from {
+            opacity: 0;
+            transform: translateY(30px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+
+    @keyframes slideInCard {
+        from {
+            opacity: 0;
+            transform: translateY(50px) scale(0.9);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0) scale(1);
+        }
+    }
+
+
+    /* Responsive styles */
+    @media (max-width: 600px) {
+        .topbar nav {
+            display: none;
+            flex-direction: column;
+            width: 100%;
+            background-color: #07499e;
+        }
+        .topbar nav.active {
+            display: flex;
+        }
+        .menu-toggle {
+            display: block;
+        }
+       
+        .center-content {
+            right: 5%;
+            left: auto;
+            padding: 0 20px;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+       
+        .center-content h1 {
+            font-size: 2rem;
+        }
+       
+        .center-content p {
+            font-size: 1rem;
+        }
+
+
+        .news-section {
+            padding: 40px 20px;
+        }
+
+
+        .news-grid {
+            grid-template-columns: 1fr;
+            grid-template-rows: auto;
+        }
+    }
+
+
+    /* Article Modal */
+    .article-modal {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 1000;
+        overflow-y: auto;
+        animation: fadeIn 0.3s ease;
+    }
+
+
+    .article-modal.active {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 20px;
+    }
+
+
+    .modal-backdrop {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.8);
+        backdrop-filter: blur(5px);
+        z-index: 1001;
+    }
+
+
+    .modal-content {
+        position: relative;
+        background: rgba(255, 255, 255, 0.98);
+        border-radius: 20px;
+        max-width: 900px;
+        width: 100%;
+        max-height: 90vh;
+        overflow-y: auto;
+        z-index: 1002;
+        box-shadow:
+            0 0 30px rgba(7, 73, 158, 0.8),
+            0 0 50px rgba(255, 177, 0, 0.6),
+            0 20px 60px rgba(0, 0, 0, 0.5);
+        border: 6px solid transparent;
+        background-clip: padding-box;
+        animation: popIn 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+        margin: 20px;
+    }
+
+
+    .modal-content::before {
+        content: '';
+        position: absolute;
+        top: -6px;
+        left: -6px;
+        right: -6px;
+        bottom: -6px;
+        border-radius: 20px;
+        background: linear-gradient(135deg, rgba(7, 73, 158, 0.3), rgba(255, 177, 0, 0.2), rgba(7, 73, 158, 0.3), rgba(255, 177, 0, 0.15));
+        background-size: 200% 200%;
+        z-index: -1;
+        animation: gradientShift 3s ease infinite;
+    }
+
+
+    .modal-close {
+        position: absolute;
+        top: 15px;
+        right: 15px;
+        width: 40px;
+        height: 40px;
+        background: rgba(7, 73, 158, 0.9);
+        color: white;
+        border: none;
+        border-radius: 50%;
+        font-size: 24px;
+        cursor: pointer;
+        z-index: 1003;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    }
+
+
+    .modal-close:hover {
+        background: rgba(255, 177, 0, 0.9);
+        transform: rotate(90deg) scale(1.1);
+    }
+
+
+    .modal-article-header {
+        padding: 20px 30px;
+        background: linear-gradient(135deg, rgba(7, 73, 158, 0.1), rgba(255, 177, 0, 0.05));
+        border-bottom: 2px solid rgba(7, 73, 158, 0.2);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        position: sticky;
+        top: 0;
+        background: rgba(255, 255, 255, 0.98);
+        z-index: 10;
+    }
+
+
+    .modal-article-photo {
+        width: 100%;
+        height: 400px;
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+    }
+
+
+    .modal-article-body {
+        padding: 30px;
+    }
+
+
+    .modal-article-body h2 {
+        font-family: 'Montserrat', serif;
+        font-size: 2.5rem;
+        color: #07499e;
+        margin-bottom: 20px;
+        font-weight: 700;
+    }
+
+
+    .modal-article-body p {
+        font-size: 1.1rem;
+        line-height: 1.8;
+        color: #333;
+        margin-bottom: 20px;
+    }
+
+
+    @keyframes fadeIn {
+        from {
+            opacity: 0;
+        }
+        to {
+            opacity: 1;
+        }
+    }
+
+
+    @keyframes popIn {
+        from {
+            opacity: 0;
+            transform: scale(0.7) translateY(50px);
+        }
+        to {
+            opacity: 1;
+            transform: scale(1) translateY(0);
+        }
+    }
+
+
+    /* Statistics Section */
+    .stats-section {
+        position: relative;
+        padding: 80px 40px;
+        max-width: 1400px;
+        margin: 0 auto;
+        z-index: 1;
+        margin-top: 0;
+    }
+
+
+    .stats-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 24px;
+        animation: fadeInUp 1s ease-out;
+    }
+
+    .stat-item {
+        background: rgba(255, 255, 255, 0.08);
+        border: 1px solid rgba(255, 177, 0, 0.35);
+        border-radius: 12px;
+        padding: 28px 20px;
+        text-align: center;
+        box-shadow: 0 8px 18px rgba(0, 0, 0, 0.25);
+        text-transform: uppercase;
+    }
+
+    .stat-number {
+        font-size: 2.6rem;
+        font-weight: 900;
+        letter-spacing: 1.2px;
+        color: rgba(255, 177, 0, 1);
+        text-shadow: 0 0 12px rgba(255, 177, 0, 0.45);
+    }
+
+    .stat-label {
+        margin-top: 10px;
+        color: #fff;
+        font-size: 1.2rem;
+        font-weight: 800;
+        letter-spacing: 1px;
+    }
+
+    .stat-description {
+        margin-top: 6px;
+        color: rgba(255, 255, 255, 0.9);
+        font-size: 0.95rem;
+        letter-spacing: 0.8px;
+    }
+
+
+    @media (max-width: 1024px) {
+        .stats-grid {
+            grid-template-columns: repeat(2, 1fr);
+        }
+    }
+
+
+    @media (max-width: 600px) {
+        .stats-grid {
+            grid-template-columns: 1fr;
+        }
+       
+        .stats-section {
+            padding: 40px 20px;
+        }
+    }
+
+
+    /* Footer */
+    .footer {
+        position: relative;
+        background: linear-gradient(135deg, rgba(7, 73, 158, 0.95), rgba(7, 73, 158, 0.85));
+        padding: 60px 40px 30px;
+        margin-top: 80px;
+        z-index: 1;
+        border-top: 3px solid rgba(255, 177, 0, 0.5);
+    }
+
+
+    .footer-content {
+        max-width: 1400px;
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 40px;
+        margin-bottom: 40px;
+    }
+
+
+    .footer-section h3 {
+        color: rgba(255, 177, 0, 1);
+        font-size: 1.3rem;
+        font-weight: 700;
+        margin-bottom: 20px;
+        font-family: 'Montserrat', serif;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    }
+
+
+    .footer-section p,
+    .footer-section a {
+        color: rgba(255, 255, 255, 0.9);
+        text-decoration: none;
+        font-size: 1rem;
+        line-height: 1.8;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        margin-bottom: 12px;
+        transition: color 0.3s ease;
+    }
+
+
+    .footer-section a:hover {
+        color: rgba(255, 177, 0, 1);
+        transform: translateX(5px);
+    }
+
+
+    .footer-section .icon {
+        font-size: 1.2rem;
+        width: 24px;
+        text-align: center;
+    }
+
+
+    .social-links {
+        display: flex;
+        gap: 15px;
+        margin-top: 15px;
+    }
+
+
+    .social-links a {
+        width: 45px;
+        height: 45px;
+        border-radius: 50%;
+        background: rgba(255, 177, 0, 0.2);
+        border: 2px solid rgba(255, 177, 0, 0.5);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.2rem;
+        transition: all 0.3s ease;
+        margin-bottom: 0;
+        color: rgba(255, 177, 0, 1);
+    }
+
+
+    .social-links a i {
+        font-size: 1.2rem;
+    }
+
+
+    .social-links a:hover {
+        background: rgba(255, 177, 0, 0.9);
+        border-color: rgba(255, 177, 0, 1);
+        transform: translateY(-3px) scale(1.1);
+        box-shadow: 0 4px 8px rgba(255, 177, 0, 0.4);
+    }
+
+
+    .footer-copyright {
+        text-align: center;
+        padding-top: 30px;
+        border-top: 1px solid rgba(255, 177, 0, 0.3);
+        color: rgba(255, 255, 255, 0.8);
+        font-size: 0.9rem;
+    }
+
+
+    .footer-copyright strong {
+        color: rgba(255, 177, 0, 1);
+        font-weight: 600;
+    }
+
+
+    @media (max-width: 768px) {
+        .footer {
+            padding: 40px 20px 20px;
+        }
+
+
+        .footer-content {
+            grid-template-columns: 1fr;
+            gap: 30px;
+        }
+    }
+</style>
+</head>
+<body>
+
+
+<div class="topbar">
+    <a href="#" class="logo"><img src="file:///C:/Users/ching/Downloads/315007560_5856769961020467_3843091700367342466_n.jpg" alt="Logo"></a>
+    <span class="menu-toggle" id="menu-toggle">&#9776;</span>
+    <nav id="nav-links">
+       
+        <a href="index.html">Нүүр</a>       
+         <a href="##placeholder">Бидний тухай</a>
+        <a href="hall of fame.html">Бидний амжилт</a>
+        <a href="##placeholder">Сургалт</a>
+
+        <a href="#contact">Холбоо барих</a>
+         <a href="##placeholder_shalgalt" class="cta-button">ЭЛСЭЛТ</a>
+    </nav>
+</div>
+
+
+<div class="center-content">
+    <div class="text-content">
+        <h1>11-р сургуульд тавтай морил</h1>
+        <p>Таны амжилтын аялал эндээс эхэлнэ</p>
+    </div>
+    
+</div>
+
+
+<div class="news-section">
+    <div class="news-grid">
+        <div class="news-card" data-author="Author Name" data-date="Jan 15, 2024" data-title="sain garaa go" data-image="https://scontent.fuln11-1.fna.fbcdn.net/v/t39.30808-6/583334535_1251025820404755_1221325711039351983_n.jpg?stp=dst-jpg_s600x600_tt6&_nc_cat=103&ccb=1-7&_nc_sid=127cfc&_nc_ohc=YXe9ejA1t90Q7kNvwEbfFnF&_nc_oc=Adl-5DwQ1wIx2DFrTokiyz_DA199RVmoPLHtf-qGn8wiv6SX09GcFDM-PwxDyTIw0o8&_nc_zt=23&_nc_ht=scontent.fuln11-1.fna&_nc_gid=RxoyjRkpubrsLrifA0W0ZQ&oh=00_AfgFDUOVHvXWDRG9FyrOHwwgZcmgwucTJo5PtIU3zbYbkA&oe=6931CFA5" data-article="This is the full article content. You can replace this text with your actual article. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.">
+            <div class="news-card-header">
+                <span class="written-by">Бичсэн Автор</span>
+                <span class="date">2024 оны 1-р сарын 15</span>
+            </div>
+            <div class="news-card-photo"></div>
+            <div class="news-card-content">
+                <p>sain garaa go</p>
+            </div>
+        </div>
+        <div class="news-card" data-author="Author Name" data-date="Jan 16, 2024" data-title="sain garaa go" data-image="https://scontent.fuln11-1.fna.fbcdn.net/v/t39.30808-6/583334535_1251025820404755_1221325711039351983_n.jpg?stp=dst-jpg_s600x600_tt6&_nc_cat=103&ccb=1-7&_nc_sid=127cfc&_nc_ohc=YXe9ejA1t90Q7kNvwEbfFnF&_nc_oc=Adl-5DwQ1wIx2DFrTokiyz_DA199RVmoPLHtf-qGn8wiv6SX09GcFDM-PwxDyTIw0o8&_nc_zt=23&_nc_ht=scontent.fuln11-1.fna&_nc_gid=RxoyjRkpubrsLrifA0W0ZQ&oh=00_AfgFDUOVHvXWDRG9FyrOHwwgZcmgwucTJo5PtIU3zbYbkA&oe=6931CFA5" data-article="This is the full article content. You can replace this text with your actual article. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.">
+            <div class="news-card-header">
+                <span class="written-by">Бичсэн Автор</span>
+                <span class="date">2024 оны 1-р сарын 15</span>
+            </div>
+            <div class="news-card-photo"></div>
+            <div class="news-card-content">
+                <p>sain garaa go</p>
+            </div>
+        </div>
+        <div class="news-card" data-author="Author Name" data-date="Jan 17, 2024" data-title="sain garaa go" data-image="https://scontent.fuln11-1.fna.fbcdn.net/v/t39.30808-6/583334535_1251025820404755_1221325711039351983_n.jpg?stp=dst-jpg_s600x600_tt6&_nc_cat=103&ccb=1-7&_nc_sid=127cfc&_nc_ohc=YXe9ejA1t90Q7kNvwEbfFnF&_nc_oc=Adl-5DwQ1wIx2DFrTokiyz_DA199RVmoPLHtf-qGn8wiv6SX09GcFDM-PwxDyTIw0o8&_nc_zt=23&_nc_ht=scontent.fuln11-1.fna&_nc_gid=RxoyjRkpubrsLrifA0W0ZQ&oh=00_AfgFDUOVHvXWDRG9FyrOHwwgZcmgwucTJo5PtIU3zbYbkA&oe=6931CFA5" data-article="This is the full article content. You can replace this text with your actual article. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.">
+            <div class="news-card-header">
+                <span class="written-by">Бичсэн Автор</span>
+                <span class="date">2024 оны 1-р сарын 15</span>
+            </div>
+            <div class="news-card-photo"></div>
+            <div class="news-card-content">
+                <p>sain garaa go</p>
+            </div>
+        </div>
+        <div class="news-card" data-author="Author Name" data-date="Jan 18, 2024" data-title="sain garaa go" data-image="https://scontent.fuln11-1.fna.fbcdn.net/v/t39.30808-6/583334535_1251025820404755_1221325711039351983_n.jpg?stp=dst-jpg_s600x600_tt6&_nc_cat=103&ccb=1-7&_nc_sid=127cfc&_nc_ohc=YXe9ejA1t90Q7kNvwEbfFnF&_nc_oc=Adl-5DwQ1wIx2DFrTokiyz_DA199RVmoPLHtf-qGn8wiv6SX09GcFDM-PwxDyTIw0o8&_nc_zt=23&_nc_ht=scontent.fuln11-1.fna&_nc_gid=RxoyjRkpubrsLrifA0W0ZQ&oh=00_AfgFDUOVHvXWDRG9FyrOHwwgZcmgwucTJo5PtIU3zbYbkA&oe=6931CFA5" data-article="This is the full article content. You can replace this text with your actual article. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.">
+            <div class="news-card-header">
+                <span class="written-by">Бичсэн Автор</span>
+                <span class="date">2024 оны 1-р сарын 15</span>
+            </div>
+            <div class="news-card-photo"></div>
+            <div class="news-card-content">
+                <p>sain garaa go</p>
+            </div>
+        </div>
+        <div class="news-card" data-author="Author Name" data-date="Jan 19, 2024" data-title="sain garaa go" data-image="https://scontent.fuln11-1.fna.fbcdn.net/v/t39.30808-6/583334535_1251025820404755_1221325711039351983_n.jpg?stp=dst-jpg_s600x600_tt6&_nc_cat=103&ccb=1-7&_nc_sid=127cfc&_nc_ohc=YXe9ejA1t90Q7kNvwEbfFnF&_nc_oc=Adl-5DwQ1wIx2DFrTokiyz_DA199RVmoPLHtf-qGn8wiv6SX09GcFDM-PwxDyTIw0o8&_nc_zt=23&_nc_ht=scontent.fuln11-1.fna&_nc_gid=RxoyjRkpubrsLrifA0W0ZQ&oh=00_AfgFDUOVHvXWDRG9FyrOHwwgZcmgwucTJo5PtIU3zbYbkA&oe=6931CFA5" data-article="This is the full article content. You can replace this text with your actual article. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.">
+            <div class="news-card-header">
+                <span class="written-by">Бичсэн Автор</span>
+                <span class="date">2024 оны 1-р сарын 15</span>
+            </div>
+            <div class="news-card-photo"></div>
+            <div class="news-card-content">
+                <p>sain garaa go</p>
+            </div>
+        </div>
+        <div class="news-card" data-author="Author Name" data-date="Jan 20, 2024" data-title="sain garaa go" data-image="https://scontent.fuln11-1.fna.fbcdn.net/v/t39.30808-6/583334535_1251025820404755_1221325711039351983_n.jpg?stp=dst-jpg_s600x600_tt6&_nc_cat=103&ccb=1-7&_nc_sid=127cfc&_nc_ohc=YXe9ejA1t90Q7kNvwEbfFnF&_nc_oc=Adl-5DwQ1wIx2DFrTokiyz_DA199RVmoPLHtf-qGn8wiv6SX09GcFDM-PwxDyTIw0o8&_nc_zt=23&_nc_ht=scontent.fuln11-1.fna&_nc_gid=RxoyjRkpubrsLrifA0W0ZQ&oh=00_AfgFDUOVHvXWDRG9FyrOHwwgZcmgwucTJo5PtIU3zbYbkA&oe=6931CFA5" data-article="This is the full article content. You can replace this text with your actual article. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.">
+            <div class="news-card-header">
+                <span class="written-by">Бичсэн Автор</span>
+                <span class="date">2024 оны 1-р сарын 15</span>
+            </div>
+            <div class="news-card-photo"></div>
+            <div class="news-card-content">
+                <p>sain garaa go</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="stats-section">
+    <div class="stats-grid">
+        <div class="stat-item">
+            <div class="stat-number">900</div>
+            <div class="stat-label">СУРАЛЦАГЧ</div>
+            <div class="stat-description">НИЙТ СУРАЛЦАГЧИД</div>
+        </div>
+        <div class="stat-item">
+            <div class="stat-number">67</div>
+            <div class="stat-label">БАГШ</div>
+            <div class="stat-description">ПРОФЕССОР БАГШ НАР</div>
+        </div>
+        <div class="stat-item">
+            <div class="stat-number">20</div>
+            <div class="stat-label">КЛУБ</div>
+            <div class="stat-description">БОЛОМЖИТ КЛУБҮҮД</div>
+        </div>
+    </div>
+</div>
+
+
+<!-- Article Modal -->
+<div class="article-modal" id="articleModal">
+    <div class="modal-backdrop" id="modalBackdrop"></div>
+    <div class="modal-content">
+        <button class="modal-close" id="modalClose">&times;</button>
+        <div class="modal-article-header">
+            <span class="written-by">Бичсэн <span id="modalAuthor"></span></span>
+            <span class="date" id="modalDate"></span>
+        </div>
+        <div class="modal-article-photo" id="modalPhoto"></div>
+        <div class="modal-article-body">
+            <h2 id="modalTitle"></h2>
+            <p id="modalArticle"></p>
+        </div>
+    </div>
+</div>
+
+
+<script>
+    // Toggle mobile menu
+    document.getElementById('menu-toggle').addEventListener('click', function() {
+        const nav = document.getElementById('nav-links');
+        nav.classList.toggle('active');
+    });
+
+
+    // Fade in news cards on scroll
+    const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -100px 0px'
+    };
+
+
+    const observer = new IntersectionObserver(function(entries) {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('fade-in');
+                observer.unobserve(entry.target);
+            }
+        });
+    }, observerOptions);
+
+
+    // Observe all news cards
+    document.querySelectorAll('.news-card').forEach(card => {
+        observer.observe(card);
+    });
+
+
+    // Article modal functionality
+    const modal = document.getElementById('articleModal');
+    const modalBackdrop = document.getElementById('modalBackdrop');
+    const modalClose = document.getElementById('modalClose');
+    const modalAuthor = document.getElementById('modalAuthor');
+    const modalDate = document.getElementById('modalDate');
+    const modalPhoto = document.getElementById('modalPhoto');
+    const modalTitle = document.getElementById('modalTitle');
+    const modalArticle = document.getElementById('modalArticle');
+
+
+    // Open modal when news card is clicked
+    document.querySelectorAll('.news-card').forEach(card => {
+        card.addEventListener('click', function() {
+            const author = this.getAttribute('data-author');
+            const date = this.getAttribute('data-date');
+            const title = this.getAttribute('data-title');
+            const image = this.getAttribute('data-image');
+            const article = this.getAttribute('data-article');
+
+
+            modalAuthor.textContent = author;
+            modalDate.textContent = date;
+            modalTitle.textContent = title;
+            modalPhoto.style.backgroundImage = `url('${image}')`;
+            modalArticle.textContent = article;
+
+
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        });
+    });
+
+
+    // Close modal functions
+    function closeModal() {
+        modal.classList.remove('active');
+        document.body.style.overflow = '';
+    }
+
+
+    modalClose.addEventListener('click', closeModal);
+    modalBackdrop.addEventListener('click', closeModal);
+
+
+    // Close modal on Escape key
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && modal.classList.contains('active')) {
+            closeModal();
+        }
+    });
+</script>
+
+
+<footer class="footer">
+    <div class="footer-content">
+        <div class="footer-section">
+            <h3>Байршил</h3>
+            <p>
+                <span class="icon">📍</span>
+                <span>11-р сургууль<br>Улаанбаатар, Монгол</span>
+            </p>
+        </div>
+       
+        <div class="footer-section">
+            <h3>Холбоо барих</h3>
+            <a href="tel:+97612345678">
+                <span class="icon">📞</span>
+                <span>+976 1234 5678</span>
+            </a>
+            <a href="mailto:info@11thschool.edu.mn">
+                <span class="icon">✉️</span>
+                <span>info@11thschool.edu.mn</span>
+            </a>
+        </div>
+       
+        <div class="footer-section">
+            <h3>Биднийг дагаарай</h3>
+            <div class="social-links">
+                <a href="#" target="_blank" aria-label="Facebook">
+                    <i class="fab fa-facebook-f"></i>
+                </a>
+                <a href="#" target="_blank" aria-label="Instagram">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="#" target="_blank" aria-label="Twitter">
+                    <i class="fab fa-twitter"></i>
+                </a>
+                <a href="#" target="_blank" aria-label="YouTube">
+                    <i class="fab fa-youtube"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+   
+    <div class="footer-copyright">
+        <p>&copy; 2024 11-р сургууль. Бүх эрх хуулиар хамгаалагдсан. | <strong>Testing_Bayar</strong></p>
+    </div>
+</footer>
+
+
+</body>
+</html>
+
+
+
+
