@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import { ApplyButton } from "./ApplyButton";
 
 // ! also teacher said that the bookmark thing was not recommended so were falling back to corporate slop
 
@@ -38,8 +39,7 @@ export function Header() {
           <NavEntry link="/about">About</NavEntry>
           <NavEntry link="/achievements">Achievements</NavEntry>
           <NavEntry link="/course">Courses</NavEntry>
-          <NavEntry link="/contact">Contact</NavEntry>
-          <NavEntry link="/apply">Apply</NavEntry>
+          <ApplyButton />
         </nav>
       </div>
     </header>

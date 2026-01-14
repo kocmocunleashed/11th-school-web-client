@@ -65,10 +65,17 @@ export function Footer() {
         </section>
         {/* Copyright */}
         <section className="border-t border-t-primary pt-8">
-          <p className="text-background-alt font-light text-center w-full">
-            {/* TODO: Get a team name */}© 2024 11th School. All rights
-            reserved. | TEAMNAMETEAMNAME (Testing_Bayar)
-          </p>
+          <div className="relative">
+            <p className="text-background-alt font-light text-center w-full">
+              {/* TODO: Get a team name */}© 2024 11th School. All rights
+              reserved. | TEAMNAMETEAMNAME (Testing_Bayar)
+            </p>
+            <Link href="/tetris">
+              <button className="absolute left-0 bottom-0 text-xs px-2 py-1 rounded-md transition-all hover:scale-105 opacity-70 hover:opacity-100" style={{ color: '#facc15' }}>
+                ▶
+              </button>
+            </Link>
+          </div>
         </section>
       </div>
     </footer>
