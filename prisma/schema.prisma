@@ -1,0 +1,80 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client"
+  output   = "../src/app/generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+enum ContestLevel {
+  DISTRICT
+  STATE
+  NATIONAL
+  INTERNATIONAL
+  HONORARY
+}
+
+/// Do add more if you need to
+enum ContestTopic {
+  MATH
+  PHYSICS
+  BIOLOGY
+  GEOGRAPHY
+  CHEMISTRY
+  PSYCHOLOGY
+  INFORMATICS
+  SOCIAL_STUDIES
+}
+
+model Contest {
+  id String @id @default(nanoid())
+
+  name  String
+  year  DateTime
+  level ContestLevel
+
+  hosterId String
+  hoster   ContestHoster @relation(fields: [hosterId], references: [id])
+
+  achievements Achievement[]
+}
+
+model ContestHoster {
+  id       String    @id @default(nanoid())
+  name     String
+  contests Contest[]
+}
+
+enum AcheivementSpot {
+  GOLD
+  SILVER
+  BRONZE
+}
+
+model Achievement {
+  id String @id @default(nanoid())
+
+  title       String
+  description String
+  spot        AcheivementSpot
+
+  contestId String
+  contest   Contest @relation(fields: [contestId], references: [id])
+
+  holderId String
+  holder   AchievementHolder @relation(fields: [holderId], references: [id])
+}
+
+model AchievementHolder {
+  id String @id @default(nanoid())
+
+  name         String
+  achievements Achievement[]
+}
