@@ -252,7 +252,9 @@ const AchievementsPage: React.FC = () => {
             {years.map((year, index) => (
               <div
                 key={year}
-                ref={(el) => (yearRefs.current[year] = el)}
+                ref={(el) => {
+                  yearRefs.current[year] = el;
+                }}
                 className={`${styles.timelineItem} ${selectedYear === year ? styles.active : ''}`}
                 onClick={() => scrollToYear(year)}
               >
